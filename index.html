@@ -6,12 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1 , user-scalable=no">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .booth {
             width:400px;
-
             background:#ccc;
             border: 10px solid #ddd;
             margin: 0 auto;
+        }
+        #img{
+            width: 200px;
+            height: 150px;
         }
     </style>
 </head>
@@ -19,7 +26,7 @@
 <div class="booth">
     <video id="video" width="300" height="400"></video>
     <button id='tack'> snap shot</button>
-    <img id='img' src='' width="300" height="400">
+    <img id='img' src=''>
 </div>
 
 
@@ -52,7 +59,7 @@
     snap.addEventListener('click', function(){
 
         //绘制canvas图形
-        canvas.getContext('2d').drawImage(video, 0, 0, 300, 400);
+        canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
 
         //把canvas图像转为img图片
         img.src = canvas.toDataURL("image/png", 1);
