@@ -40,6 +40,8 @@
     canvas.width = 300;
     canvas.height = 400;
 
+    var isFirst = true;
+
     //媒体对象
     navigator.getMedia = navigator.getUserMedia ||
         navagator.webkitGetUserMedia ||
@@ -58,12 +60,17 @@
         alert(error);
     });
     snap.addEventListener('click', function(){
+        if (isFirst) {
+            isFirst = !isFirst;
+            video.play();
+        } else {
+            //绘制canvas图形
+            canvas.getContext('2d').drawImage(video, 0, 0, 300, 400);
 
-        //绘制canvas图形
-        canvas.getContext('2d').drawImage(video, 0, 0, 300, 400);
+            //把canvas图像转为img图片
+            img.src = canvas.toDataURL("image/png", 1);
+        }
 
-        //把canvas图像转为img图片
-        img.src = canvas.toDataURL("image/png", 1);
 
     })
 </script>
