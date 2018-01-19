@@ -29,10 +29,13 @@
 
 <script>
     var video = document.getElementById('video'),
-        canvas = document.getElementById('canvas'),
         snap = document.getElementById('tack'),
         img = document.getElementById('img'),
         vendorUrl = window.URL || window.webkitURL;
+
+    var canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 300;
 
     //媒体对象
     navigator.getMedia = navigator.getUserMedia ||
