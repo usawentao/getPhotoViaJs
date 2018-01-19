@@ -13,17 +13,13 @@
             border: 10px solid #ddd;
             margin: 0 auto;
         }
-        canvas{
-            display: none;
-        }
     </style>
 </head>
 <body>
 <div class="booth">
     <video id="video" width="400" height="300"></video>
     <button id='tack'> snap shot</button>
-    <canvas id='canvas' width='400' height='300'></canvas>
-    <img id='img' src='' width="150" height="200">
+    <img id='img' src='' width="400" height="300">
 </div>
 
 
@@ -59,7 +55,7 @@
         canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
 
         //把canvas图像转为img图片
-        img.src = canvas.toDataURL("image/png");
+        img.src = canvas.toDataURL("image/png", 1);
 
     })
 </script>
